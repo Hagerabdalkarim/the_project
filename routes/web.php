@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::fallback(function(){
+//  return redirect('homePage');
+// });
 Route::get('homePage', function(){
     return view('homePage');
 })->name('home');
