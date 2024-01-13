@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Mail\UserMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,35 +17,16 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::fallback(function(){
-//  return redirect('homePage');
-// });
-
 
 Auth::routes();
-
-
+Route::get('email', function(){
+    return new UserMail();
+});
 Route::middleware('auth')->group(function () {
-
 Route::get('home', [HomeController::class, 'index'])->name('home');
-
-Route::get('homePage', function(){
-    return view('homePage');
-})->name('homePage');
-
-Route::get('about', function(){
-    return view('about');
-})->name('about');
-
-Route::get('service', function(){
-    return view('service');
-})->name('service');
-
-Route::get('guards', function(){
-    return view('team');
-})->name('team');
-
-Route::get('contactUs', function(){
-    return view('contact');
-})->name('contact');
+Route::get('homepage',[Controller::class,'index'])->name('homepage');
+Route::get('about',[Controller::class,'about'])->name('about');
+Route::get('service',[Controller::class,'service'])->name('service');
+Route::get('contactUs',[Controller::class,'contact'])->name('contact');
+Route::get('team',[Controller::class,'team'])->name('team');
 });

@@ -45,20 +45,23 @@
 
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item" >
+        <a href="{{route('homePage')}} " class=" nav-link {{Request()->routeIs("homePage")?'active':''}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('about') }}"> About</a>
+                  
+                  <a href="{{route('about')}} " class="nav-link {{Request()->routeIs("about")?'active':''}}">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('service') }}"> Services </a>
+                 
+                  <a href="{{route('service')}} " class="nav-link {{Request()->routeIs("service")?'active':''}}">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('team') }}"> Guards </a>
+                  
+                  <a href="{{route('team')}} " class="nav-link {{Request()->routeIs("team")?'active':''}}">Guards</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
+                  <a href="{{route('contact')}} " class="nav-link {{Request()->routeIs("contact")?'active':''}}">Contact Us</a>
                 </li>
               </ul>
             </div>

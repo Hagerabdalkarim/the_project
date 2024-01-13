@@ -9,11 +9,11 @@
 
  @include('includes.header')
 
- <!-- @include('includes.slider_section') -->
 
   @yield('content')
 
  @include('includes.info_section')
+
   @include('includes.footer')
 
   
