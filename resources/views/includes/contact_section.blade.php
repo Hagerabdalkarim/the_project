@@ -9,7 +9,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Get In touch
+          {{__('messages.bottom_contact_section') }}
         </h2>
       </div>
       <div class="">
@@ -32,7 +32,7 @@
                   </div>
                   <div class="btn-box ">
                     <button type="submit">
-                      Send
+                   {{__('messages.bottom_contact_section') }}
                     </button>
                   </div>
                 </div>

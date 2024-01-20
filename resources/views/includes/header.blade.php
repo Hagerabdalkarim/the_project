@@ -63,6 +63,9 @@
                 <li class="nav-item">
                   <a href="{{route('contact')}} " class="nav-link {{Request()->routeIs("contact")?'active':''}}">Contact Us</a>
                 </li>
+                 <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">English</a></li> 
+               <li><a href="{{ LaravelLocalization::getLocalizedURL('ar') }}">Arabic</a></li> 
+      
               </ul>
             </div>
           </nav>

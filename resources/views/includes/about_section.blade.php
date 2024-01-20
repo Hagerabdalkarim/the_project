@@ -14,7 +14,7 @@
           <div class="detail-box">
             <div class="heading_container ">
               <h2>
-                Who Are We?
+               {{__('messages.about_section') }}
               </h2>
             </div>
             <p>
@@ -26,7 +26,7 @@
             </p>
             <div class="btn-box">
               <a href="">
-                Read More
+                {{__('messages.read_section') }}
               </a>
             </div>
           </div>

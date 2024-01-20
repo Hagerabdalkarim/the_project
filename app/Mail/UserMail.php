@@ -11,6 +11,8 @@ use Illuminate\Queue\SerializesModels;
 
 class UserMail extends Mailable
 {
+    use Mail;
+
     use Queueable, SerializesModels;
 
     /**
@@ -18,16 +20,29 @@ class UserMail extends Mailable
      */
     public function __construct()
     {
-        //
+        $this->data = $data;
     }
+    public function sendContactUs(Request $request){
+        $data= $request->validation([
+            'name'=>'required|string|max:50',
+            'email'=>'required|string',
+           'subject'=>'required',
+           'message'=>'required',
 
+        ]);
+        Mail::to('info@.com')->send(
+            new ContactMAIL($data)
+        );
+        return "mail sent!";
+    }
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'User Mail',
+            from:new Address($this->data['email'], $this->data['name']),
+            subject: $this->data['subject'] . '- Contact Us',
         );
     }
 
@@ -38,6 +53,9 @@ class UserMail extends Mailable
     {
         return new Content(
             markdown: 'emails.welcome',
+            with:[
+          $this->data,
+            ]
         );
     }
 

@@ -4,7 +4,7 @@
     <div class="container ">
       <div class="heading_container heading_center">
         <h2>
-          What is says our clients
+         {{__('messages.client_section') }}
         </h2>
       </div>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

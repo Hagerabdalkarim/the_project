@@ -22,8 +22,12 @@ Auth::routes();
 Route::get('email', function(){
     return new UserMail();
 });
-Route::middleware('auth')->group(function () {
-Route::get('home', [HomeController::class, 'index'])->name('home');
+
+Route::group(
+[
+'prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'auth','localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('homepage',[Controller::class,'index'])->name('homepage');
 Route::get('about',[Controller::class,'about'])->name('about');
 Route::get('service',[Controller::class,'service'])->name('service');
